@@ -57,20 +57,4 @@ else
     echo "Jenkins URL: " >> $STATE_FILE
     echo $URL >> $STATE_FILE
     echo "3. See '$STATE_FILE' for Jenkins PID and URL."
-
-    # Start the ROS script that TAKES OFF the drone in the background
-    # Capture the process ID of that script in TAKEOFF_ID
-    # Wait for 15 seconds and then kill the process
-    rostopic pub /drone/takeoff std_msgs/Empty '{}' &
-    TAKEOFF_ID=$!
-    sleep 15s
-    kill $TAKEOFF_ID
-
-    # Start the ROS script that LANDS the drone
-    # Capture the process ID of that script in LAND_ID
-    # Wait for 5 seconds and then kill the process
-    rostopic pub /drone/land std_msgs/Empty '{}' &
-    LAND_ID=$!
-    sleep 5s
-    kill $LAND_ID
 fi
