@@ -16,7 +16,7 @@ docker build -t "$IMAGE_NAME" .
 
 # Run container
 echo "Starting container..."
-docker run -d --rm --name "$CONTAINER_NAME" \
+sudo docker run -d --rm --name "$CONTAINER_NAME" \
   -e DISPLAY \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   "$IMAGE_NAME" bash -c \
@@ -28,7 +28,7 @@ sleep 15s
 
 # Run test
 echo "Running tests..."
-docker exec "$CONTAINER_NAME" bash -c \
+sudo docker exec "$CONTAINER_NAME" bash -c \
   'source /catkin_ws/devel/setup.bash && rostest tortoisebot_waypoints waypoints_test.test --reuse-master'
 
 # Cleanup: Kill simulation after timeout
