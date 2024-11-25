@@ -4,7 +4,7 @@ set -e  # Exit on error
 # Variables
 IMAGE_NAME="a7med205/ahmedhmair-cp22:tortoisebot-ros1-test"
 CONTAINER_NAME="test_container"
-SIMULATION_TIMEOUT=${SIMULATION_TIMEOUT:-120s} # Default timeout of 120s
+SIMULATION_TIMEOUT=${SIMULATION_TIMEOUT:-100s} # Default timeout of 120s
 
 # Print current directory and contents
 pwd
